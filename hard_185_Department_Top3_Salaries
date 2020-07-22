@@ -55,3 +55,9 @@ select s_temp.Name AS Department, E2.Name AS Employee, E2.Salary from
 s_temp join Employee E2 on
 s_temp.Id = E2.DepartmentId and s_temp.Salary = E2.Salary
 where s_temp.rank < 4
+
+
+Ps: the 4 sql ranking functions:
+row_number(), rank, dense_rank, ntile
+more infomation
+https://www.cnblogs.com/52xf/p/4209211.html
