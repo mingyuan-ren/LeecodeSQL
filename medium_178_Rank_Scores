@@ -29,6 +29,8 @@ Important Note: For MySQL solutions, to escape reserved words used as column nam
 
 solutions:
 
+1 time spent less
+
 # Write your MySQL query statement below
 select s4.Score, s3.Rank
 from 
@@ -39,3 +41,9 @@ from
 ) s3
 join Scores s4 on s4.Score = s3.Score
 Order by s3.Rank
+
+
+2 directly use function dense_rank
+
+select Scores.score, dense_rank() over (order by Scores.score DESC) AS 'Rank'
+from Scores
