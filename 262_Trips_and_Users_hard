@@ -78,4 +78,11 @@ from t4 group by t4.Request_at
 on t5.Request_at = t6.Request_at
 
 
-2
+2 one solution beats 100% users in discussion
+
+select request_at Day, ROUND(AVG(status like 'cancelled%'), 2) 'Cancellation Rate'
+from Trips 
+where request_at between '2013-10-01' and '2013-10-03' 
+and 'no' = all(select Banned from Users where Users_id in (client_id, driver_id))
+group by 1
+order by 1;
